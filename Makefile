@@ -55,9 +55,21 @@ elk-stop: ## Stops the ELK stack docker service
 	@cd ${PWD}/docker/elk; docker-compose down;
 	@cd ${PWD}
 
-start-services: kafka-start elk-start  ## Starts all dockerized services
+postgres-start: #starts postgres instances
+	@export PWD=`pwd`;
+	@cd ${PWD}/docker/postgres-clearing; docker-compose up -d;
+	@cd ${PWD}/docker/postgres-pricing; docker-compose up -d;
+	@cd ${PWD}
 
-stop-services: elk-stop kafka-stop ## Stops all dockerized services
+postgres-stop: #stops postgres instances
+	@export PWD=`pwd`;
+	@cd ${PWD}/docker/postgres-clearing; docker-compose down;
+	@cd ${PWD}/docker/postgres-pricing; docker-compose down;
+	@cd ${PWD}
+
+start-services: kafka-start elk-start  postgress-start ## Starts all dockerized services
+
+stop-services: psotgress-stop elk-stop kafka-stop ## Stops all dockerized services
 
 test: ## Runs the tests
 	mvn test

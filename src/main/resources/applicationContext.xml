@@ -6,7 +6,7 @@
                 http://www.springframework.org/schema/beans/spring-beans.xsd">
 
   <bean id="rjs1SchemaFileProvider" class="events.formatter.schemaprovider.FileBasedSchemaProvider">
-    <constructor-arg value="src/main/resources/schema/rjs1/generic.json"/>
+    <constructor-arg value="classpath:schema/rjs1/generic.json"/>
     <constructor-arg>
       <map/>
     </constructor-arg>
