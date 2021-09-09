@@ -95,6 +95,8 @@ Running "MyApplication" will run the consumer and kick the example off with a co
 Amend the run configuration to specify one of the program arguments [clearing,pricing,publish]
    
 Amend the run configuration to specify the EnvFile created above.
+   
+For the publish option you need a second progrma argument which is the merchantId UUID
 
 ### Running the code as a docker container
 
