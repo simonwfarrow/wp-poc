@@ -90,7 +90,11 @@ This will start the currently configured consumer
 ``127.0.0.1 kafka``  
 3. Click run in your IDE
 
-Running "MyApplication" will run the consumer and kick the example off with a command   
+Running "MyApplication" will run the consumer and kick the example off with a command.
+   
+Amend the run configuration to specify one of the program arguments [clearing,pricing,publish]
+   
+Amend the run configuration to specify the EnvFile created above.
 
 ### Running the code as a docker container
 
