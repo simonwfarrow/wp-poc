@@ -96,7 +96,7 @@ Amend the run configuration to specify one of the program arguments [clearing,pr
    
 Amend the run configuration to specify the EnvFile created above.
    
-For the publish option you need a second progrma argument which is the merchantId UUID
+For the publish option you need a second program argument which is the merchantId UUID
 
 ### Running the code as a docker container
 
