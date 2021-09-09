@@ -49,6 +49,9 @@ This looks long and complicated, but don't worry, it is really just a few comman
 **Set up ELK (for monitoring):**    
 6. Run ``make elk-start``   
    This start the elk containers. You can visit "http://localhost:5601" to open kibana (you might need to give it a minute, this one is quite slow to start up). You should also be able to see 3 containers running for ELK (1 for elasticsearch, 1 for logstash, and 1 for kibana)
+   
+**Set up Postgres:**
+7. Run ``make postgres-start``
 
 You should be good to go at this point.
 
