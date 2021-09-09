@@ -49,6 +49,9 @@ This looks long and complicated, but don't worry, it is really just a few comman
 **Set up ELK (for monitoring):**    
 6. Run ``make elk-start``   
    This start the elk containers. You can visit "http://localhost:5601" to open kibana (you might need to give it a minute, this one is quite slow to start up). You should also be able to see 3 containers running for ELK (1 for elasticsearch, 1 for logstash, and 1 for kibana)
+   
+**Set up Postgres:**
+7. Run ``make postgres-start``
 
 You should be good to go at this point.
 
@@ -90,7 +93,13 @@ This will start the currently configured consumer
 ``127.0.0.1 kafka``  
 3. Click run in your IDE
 
-Running "MyApplication" will run the consumer and kick the example off with a command   
+Running "MyApplication" will run the consumer and kick the example off with a command.
+   
+Amend the run configuration to specify one of the program arguments [clearing,pricing,publish]
+   
+Amend the run configuration to specify the EnvFile created above.
+   
+For the publish option you need a second program argument which is the merchantId UUID
 
 ### Running the code as a docker container
 
