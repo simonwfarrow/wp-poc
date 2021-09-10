@@ -1,0 +1,4 @@
+- pipeline.id: kafka_input
+  path.config: /usr/share/logstash/pipeline/kafka_input.conf
+- pipeline.id: payment_priced
+  path.config: /usr/share/logstash/pipeline/payment_priced.conf

@@ -9,7 +9,8 @@ services:
     links:
       - elasticsearch
     volumes:
-      - ./logstash-pipelines/:/usr/share/logstash/pipeline/
+      - ./logstash/:/usr/share/logstash/pipeline/
+      - ./logstash/pipelines/pipelines.yml:/usr/share/logstash/config/pipelines.yml
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.14.0

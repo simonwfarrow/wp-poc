@@ -1,0 +1,23 @@
+{
+  "size" : 1,
+  "query": {
+  "bool": {
+    "must": [
+      { "term": {
+        "category": {
+          "value": "event"
+        }
+      }},
+      { "term": {
+        "payload.id": {
+          "value": "%{[payload][id]}"
+        }
+      }},
+      { "term": {
+        "name": {
+          "value": "payment_charge_calculated"
+        }
+      }}
+    ]
+  }
+}}

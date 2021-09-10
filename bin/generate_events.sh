@@ -7,7 +7,7 @@ export KAFKA_EXTERNAL_PORT=29092
 export AFDROP_PORT=9000
 export KAFKA_CLEARING_INTERNAL_TOPIC_NAME=clearing-internal
 
-total=1
+total=100
 count=1
 
 echo "creating $total events"

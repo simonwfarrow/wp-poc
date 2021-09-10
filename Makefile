@@ -67,9 +67,9 @@ postgres-stop: #stops postgres instances
 	@cd ${PWD}/docker/postgres-pricing; docker-compose down;
 	@cd ${PWD}
 
-start-services: kafka-start elk-start  postgress-start ## Starts all dockerized services
+start-services: kafka-start elk-start  postgres-start ## Starts all dockerized services
 
-stop-services: psotgress-stop elk-stop kafka-stop ## Stops all dockerized services
+stop-services: postgres-stop elk-stop kafka-stop ## Stops all dockerized services
 
 test: ## Runs the tests
 	mvn test

@@ -1,0 +1,113 @@
+{
+  "index_patterns": [
+    "businessevents*"
+  ],
+  "mappings": {
+    "properties": {
+      "id" : {
+        "type": "text"
+      },
+      "name": {
+        "type" : "keyword"
+      },
+      "version": {
+        "type" : "long"
+      },
+      "occurred_at": {
+        "type": "date"
+      },
+      "@timestamp": {
+        "type": "date"
+      },
+      "category" : {
+        "type" : "keyword"
+      },
+      "type" : {
+        "type" : "keyword"
+      },
+      "@version" : {
+        "type" : "long"
+      },
+      "stats" : {
+        "type" : "keyword"
+      },
+      "payload" : {
+        "properties" : {
+          "interchangeCostCurrency" :{
+            "type" : "keyword"
+          },
+          "schemeFeeCurrency": {
+            "type" : "keyword"
+          },
+          "interchangeCostAmount" : {
+            "type" : "double"
+          },
+          "scheme": {
+            "type" : "keyword"
+          },
+          "merchantId" : {
+            "type" : "text"
+          },
+          "schemeFeeAmount" : {
+            "type" : "double"
+          },
+          "currency" : {
+            "type" : "keyword"
+          },
+          "id" : {
+            "type": "keyword"
+          },
+          "value" : {
+            "type" : "double"
+          },
+          "reason" : {
+            "type" : "keyword"
+          },
+          "chargesCurrency" : {
+            "type" : "keyword"
+          },
+          "chargesAmount" : {
+            "type" : "double"
+          }
+        }
+      },
+      "kafka" : {
+        "properties" : {
+          "headers" : {
+            "properties" : {
+              "messageId" : {
+                "type" : "text"
+              },
+              "nameSerde" : {
+                "type" : "keyword"
+              },
+              "headerVersion" : {
+                "type" : "long"
+              }
+            }
+          },
+          "consumer_group" : {
+            "type" : "keyword"
+          },
+          "partition" : {
+            "type" : "long"
+          },
+          "offset" : {
+            "type" : "long"
+          },
+          "topic" : {
+            "type" : "keyword"
+          },
+          "key" : {
+            "type" : "binary"
+          },
+          "timestamp" : {
+            "type" : "date",
+            "format" : "epoch_millis"
+          }
+        }
+      }
+    }
+  }
+}
+
