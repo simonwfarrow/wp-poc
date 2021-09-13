@@ -17,6 +17,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import java.util.ArrayList;
 import java.util.UUID;
+
+import lcp.Lcp;
 import money.Currency;
 import money.Money;
 import org.joda.time.DateTime;
@@ -45,7 +47,6 @@ public class ClearingFeature {
     }
   }
 
-
   private Payment payment;
   private SchemeCost schemeCost;
   private StubPublisher publisher;
@@ -57,7 +58,7 @@ public class ClearingFeature {
 
   @Given("There is a new payment for {scheme} with a value of {amount}")
   public void thereIsANewPaymentForSchemeWithAValueOfAmount(Scheme scheme, Money amount) {
-    this.payment = new Payment(scheme, amount, DateTime.now(), UUID.randomUUID());
+    this.payment = new Payment(scheme, amount, DateTime.now(), UUID.randomUUID(), Lcp.UK_PO1100000001);
   }
 
   @And("Scheme {scheme} has a scheme fee of {amount} and an interchange cost of {amount}")

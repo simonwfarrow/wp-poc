@@ -27,7 +27,8 @@ public class CalculateChargesCommandHandler implements IHandle {
         calculateChargesCommand.getPaymentId(),
         calculateChargesCommand.getValue(),
         calculateChargesCommand.getInterchangeCost(),
-        calculateChargesCommand.getSchemeFee()
+        calculateChargesCommand.getSchemeFee(),
+        calculateChargesCommand.getLcp()
     ));
 
     publisher.flush();

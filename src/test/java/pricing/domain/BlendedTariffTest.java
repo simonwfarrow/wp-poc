@@ -3,6 +3,8 @@ package pricing.domain;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.UUID;
+
+import lcp.Lcp;
 import money.Currency;
 import money.Money;
 import org.junit.jupiter.api.Test;
@@ -21,7 +23,7 @@ public class BlendedTariffTest {
 
     BlendedTariff tariff = new BlendedTariff(merchantPercentage, fixedBlendedCost);
     Money charges = tariff.calculateTotalChargeFor(
-        new Payment(UUID.randomUUID(), totalValue, interChangeCost, schemeFee));
+        new Payment(UUID.randomUUID(), totalValue, interChangeCost, schemeFee, Lcp.UK_PO1100000001));
 
     assertTrue(charges.equals(totalValue.percentageOf(merchantPercentage).add(fixedBlendedCost)));
   }

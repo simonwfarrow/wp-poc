@@ -4,6 +4,7 @@ import events.IMessage;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import lcp.Lcp;
 import money.Currency;
 import money.Money;
 import org.joda.time.DateTime;
@@ -18,15 +19,17 @@ public class CalculateChargesCommand extends Command implements IMessage {
   private UUID merchantId;
   private DateTime occurredAt;
   private Integer version = 1;
+  private Lcp lcp;
 
   public CalculateChargesCommand(UUID paymentId, Money value, Money interchangeCost,
-      Money schemeFee, UUID merchantId) {
+      Money schemeFee, UUID merchantId, Lcp lcp) {
     this.paymentId = paymentId;
     this.value = value;
     this.interchangeCost = interchangeCost;
     this.schemeFee = schemeFee;
     this.merchantId = merchantId;
     this.occurredAt = DateTime.now();
+    this.lcp = lcp;
   }
 
   public Money getValue() {
@@ -64,7 +67,8 @@ public class CalculateChargesCommand extends Command implements IMessage {
             Integer.valueOf(payload.get("schemeFeeAmount")),
             Currency.valueOf(payload.get("schemeFeeCurrency"))
         ),
-        UUID.fromString(payload.get("merchantId"))
+        UUID.fromString(payload.get("merchantId")),
+        Lcp.valueOf(payload.get("lcp"))
     );
   }
 
@@ -78,6 +82,7 @@ public class CalculateChargesCommand extends Command implements IMessage {
     payload.put("value", this.value.getAmount().toString());
     payload.put("currency", this.value.getCurrency().toString());
     payload.put("merchantId", this.merchantId.toString());
+    payload.put("lcp", this.lcp.toString());
     return payload;
   }
 
@@ -95,5 +100,9 @@ public class CalculateChargesCommand extends Command implements IMessage {
 
   public Integer getVersion() {
     return this.version;
+  }
+
+  public Lcp getLcp() {
+    return this.lcp;
   }
 }

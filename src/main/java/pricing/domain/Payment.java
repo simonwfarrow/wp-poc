@@ -1,6 +1,7 @@
 package pricing.domain;
 
 import java.util.UUID;
+import lcp.Lcp;
 import money.Money;
 
 public class Payment {
@@ -9,12 +10,14 @@ public class Payment {
   private Money value;
   private Money interChangeFee;
   private Money schemeFee;
+  private Lcp lcp;
 
-  public Payment(UUID id, Money value, Money interChangeFee, Money schemeFee) {
+  public Payment(UUID id, Money value, Money interChangeFee, Money schemeFee, Lcp lcp) {
     this.id = id;
     this.value = value;
     this.interChangeFee = interChangeFee;
     this.schemeFee = schemeFee;
+    this.lcp = lcp;
   }
 
   public UUID getId() {
@@ -31,5 +34,9 @@ public class Payment {
 
   public Money getSchemeFee() {
     return schemeFee;
+  }
+
+  public Lcp getLcp() {
+    return this.lcp;
   }
 }

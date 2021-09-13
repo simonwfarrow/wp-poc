@@ -4,7 +4,6 @@ import clearing.domain.Payment;
 import clearing.domain.PaymentRepository;
 import clearing.domain.PaymentStatus;
 import clearing.domain.Scheme;
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.UUID;
+import lcp.Lcp;
 import money.Currency;
 import money.Money;
 import org.joda.time.DateTime;
@@ -52,7 +52,7 @@ public class PostgresPaymentRepository implements PaymentRepository {
       PreparedStatement statement =
           conn.prepareStatement(
               "UPDATE payment SET merchant_id = ?, total_value = ?, "
-                  + "currency = ?, scheme = ?, paid_at = ?, status = ? WHERE id = ?");
+                  + "currency = ?, scheme = ?, paid_at = ?, status = ?, lcp = ? WHERE id = ?");
 
       Field merchantField = payment.getClass().getDeclaredField("merchantId");
       merchantField.setAccessible(true);
@@ -76,16 +76,20 @@ public class PostgresPaymentRepository implements PaymentRepository {
       statusField.setAccessible(true);
       statement.setString(6, ((PaymentStatus) statusField.get(payment)).toString());
 
+      Field lcpField = payment.getClass().getDeclaredField("lcp");
+      lcpField.setAccessible(true);
+      statement.setString(7, lcpField.get(payment).toString());
+
       Field idField = payment.getClass().getDeclaredField("id");
       idField.setAccessible(true);
-      statement.setString(7, ((UUID) idField.get(payment)).toString());
+      statement.setString(8, ((UUID) idField.get(payment)).toString());
 
       statement.execute();
     } else {
       PreparedStatement statement =
           conn.prepareStatement(
               "INSERT INTO payment (id, merchant_id, total_value, currency, "
-                  + "scheme, paid_at, status) VALUES (?,?,?,?,?,?,?)");
+                  + "scheme, paid_at, status) VALUES (?,?,?,?,?,?,?,?)");
 
       Field idField = payment.getClass().getDeclaredField("id");
       idField.setAccessible(true);
@@ -112,6 +116,10 @@ public class PostgresPaymentRepository implements PaymentRepository {
       Field statusField = payment.getClass().getDeclaredField("status");
       statusField.setAccessible(true);
       statement.setString(7, ((PaymentStatus) statusField.get(payment)).toString());
+
+      Field lcpField = payment.getClass().getDeclaredField("lcp");
+      lcpField.setAccessible(true);
+      statement.setString(7, lcpField.get(payment).toString());
 
       statement.execute();
     }
@@ -174,6 +182,10 @@ public class PostgresPaymentRepository implements PaymentRepository {
     Field schemeField = payment.getClass().getDeclaredField("scheme");
     schemeField.setAccessible(true);
     schemeField.set(payment, Scheme.valueOf(resultSet.getString("scheme").trim()));
+
+    Field lcpField = payment.getClass().getDeclaredField("lcp");
+    lcpField.setAccessible(true);
+    lcpField.set(payment, Lcp.valueOf(resultSet.getString("lcp").trim()));
 
     return payment;
   }

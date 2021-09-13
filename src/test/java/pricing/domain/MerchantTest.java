@@ -9,6 +9,8 @@ import events.IMessage;
 import events.publisher.IPublish;
 import java.util.ArrayList;
 import java.util.UUID;
+
+import lcp.Lcp;
 import money.Currency;
 import money.Money;
 import org.junit.jupiter.api.BeforeEach;
@@ -47,7 +49,7 @@ public class MerchantTest {
 
     this.merchant.calculateCharges(
         new Payment(UUID.randomUUID(), new Money(1, Currency.GBP), new Money(1, Currency.GBP),
-            new Money(1, Currency.GBP)));
+            new Money(1, Currency.GBP), Lcp.UK_PO1100000001));
 
     assertEquals(this.buffer.messages.size(), 1);
     assertEquals(this.buffer.messages.get(0).getName(), PaymentChargeCalculatedEvent.NAME);

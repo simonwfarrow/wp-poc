@@ -18,7 +18,8 @@ public class Merchant {
 
   public void calculateCharges(Payment payment) throws Exception {
     Money charge = this.pricingStrategy.calculateTotalChargeFor(payment);
-    DomainEvent.publish(new PaymentChargeCalculatedEvent(payment.getId(), charge, this.id));
+    DomainEvent.publish(
+            new PaymentChargeCalculatedEvent(payment.getId(), charge, this.id, payment.getLcp()));
   }
 
   public UUID getId() {

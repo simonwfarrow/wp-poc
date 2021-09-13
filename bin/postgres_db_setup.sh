@@ -1,6 +1,6 @@
-export PGPASSWORD='clearing'; psql -h localhost -p 5432 -U clearing -c "CREATE TABLE payment (id char(36) NOT NULL UNIQUE PRIMARY KEY, merchant_id char(36) NOT NULL, total_value integer NOT NULL, currency char(3) NOT NULL, scheme char(16) NOT NULL, paid_at timestamp with time zone NOT NULL, status varchar(16) NOT NULL)"
-export PGPASSWORD='clearing'; psql -h localhost -p 5432 -U clearing -c "INSERT INTO payment (id,merchant_id,total_value,currency,scheme,paid_at,status) VALUES('1c471ea8-07e9-4278-b0ac-d964b9a3cbbd', '27d2aadb-c444-4788-9195-5a42715a1d13', '50000', 'GBP', 'VISA', current_timestamp, 'NEW')"
-export PGPASSWORD='clearing'; psql -h localhost -p 5432 -U clearing -c "INSERT INTO payment (id,merchant_id,total_value,currency,scheme,paid_at,status) VALUES('69702a64-772f-453f-9a1d-99e1ad913af8', '861edc23-ae0e-4a1d-84c8-c6aa98fb284e', '60000', 'GBP', 'VISA', current_timestamp, 'NEW')"
+export PGPASSWORD='clearing'; psql -h localhost -p 5432 -U clearing -c "CREATE TABLE payment (id char(36) NOT NULL UNIQUE PRIMARY KEY, merchant_id char(36) NOT NULL, total_value integer NOT NULL, currency char(3) NOT NULL, scheme char(16) NOT NULL, paid_at timestamp with time zone NOT NULL, status varchar(16) NOT NULL, lcp varchar(15) NOT NULL)"
+export PGPASSWORD='clearing'; psql -h localhost -p 5432 -U clearing -c "INSERT INTO payment (id,merchant_id,total_value,currency,scheme,paid_at,status,lcp) VALUES('1c471ea8-07e9-4278-b0ac-d964b9a3cbbd', '27d2aadb-c444-4788-9195-5a42715a1d13', '50000', 'GBP', 'VISA', current_timestamp, 'NEW','UK_PO1100000001')"
+export PGPASSWORD='clearing'; psql -h localhost -p 5432 -U clearing -c "INSERT INTO payment (id,merchant_id,total_value,currency,scheme,paid_at,status,lcp) VALUES('69702a64-772f-453f-9a1d-99e1ad913af8', '861edc23-ae0e-4a1d-84c8-c6aa98fb284e', '60000', 'GBP', 'VISA', current_timestamp, 'NEW','BV_PO1100000002')"
 export PGPASSWORD='clearing'; psql -h localhost -p 5432 -U clearing -c "SELECT * FROM payment"
 
 export PGPASSWORD='pricing'; psql -h localhost -p 5432 -U pricing -c "CREATE TABLE merchant (id char(36) NOT NULL UNIQUE PRIMARY KEY, tariff varchar(16) NOT NULL)"
@@ -15,3 +15,5 @@ export PGPASSWORD='pricing'; psql -h localhost -p 5432 -U pricing -c "INSERT INT
 export PGPASSWORD='pricing'; psql -h localhost -p 5432 -U pricing -c "SELECT * FROM merchant"
 export PGPASSWORD='pricing'; psql -h localhost -p 5432 -U pricing -c "SELECT * FROM blended_merchant"
 export PGPASSWORD='pricing'; psql -h localhost -p 5432 -U pricing -c "SELECT * FROM passthrough_merchant"
+
+

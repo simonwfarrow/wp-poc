@@ -10,6 +10,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import java.util.ArrayList;
 import java.util.UUID;
+
+import lcp.Lcp;
 import money.Currency;
 import money.Money;
 import pricing.domain.BlendedTariff;
@@ -69,7 +71,7 @@ public class PricingFeature {
   public void iCalculateTheChargesForThatMerchantForAPaymentWithAValueOfAmountAndSchemeFeeOfAmountAndAnInterchangeCostOfAmount(
       Money totalValue, Money schemeFee, Money interchangeCost) throws Exception {
     this.merchant
-        .calculateCharges(new Payment(UUID.randomUUID(), totalValue, interchangeCost, schemeFee));
+        .calculateCharges(new Payment(UUID.randomUUID(), totalValue, interchangeCost, schemeFee, Lcp.UK_PO1100000001));
   }
 
   @Then("That Payment will have its charges calculated at a total of {amount}")

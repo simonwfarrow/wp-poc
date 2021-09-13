@@ -3,6 +3,7 @@ package clearing.domain;
 import clearing.domain.event.PaymentClearedEvent;
 import clearing.service.DomainEvent;
 import java.util.UUID;
+import lcp.Lcp;
 import money.Money;
 import org.joda.time.DateTime;
 
@@ -14,6 +15,17 @@ public class Payment {
   private PaymentStatus status;
   private DateTime paidAt;
   private UUID merchantId;
+  private Lcp lcp;
+
+  public Payment(Scheme scheme, Money value, DateTime paidAt, UUID merchantId, Lcp lcp) {
+    this.scheme = scheme;
+    this.value = value;
+    this.id = UUID.randomUUID();
+    this.merchantId = merchantId;
+    this.paidAt = paidAt;
+    this.status = PaymentStatus.NEW;
+    this.lcp = lcp;
+  }
 
   public Payment(Scheme scheme, Money value, DateTime paidAt, UUID merchantId) {
     this.scheme = scheme;
@@ -38,7 +50,7 @@ public class Payment {
 
     DomainEvent.publish(
         new PaymentClearedEvent(this.id, costs.getInterchangeCost(), costs.getSchemeFee(),
-            this.value, this.scheme, this.merchantId));
+            this.value, this.scheme, this.merchantId, this.lcp));
   }
 
   public UUID getId() {

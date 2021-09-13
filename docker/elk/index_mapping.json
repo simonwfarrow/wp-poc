@@ -31,6 +31,12 @@
       "stats" : {
         "type" : "keyword"
       },
+      "aged" : {
+        "type" : "boolean"
+      },
+      "age" : {
+        "type" : "double"
+      },
       "payload" : {
         "properties" : {
           "interchangeCostCurrency" :{
@@ -46,7 +52,7 @@
             "type" : "keyword"
           },
           "merchantId" : {
-            "type" : "text"
+            "type" : "keyword"
           },
           "schemeFeeAmount" : {
             "type" : "double"
@@ -68,6 +74,9 @@
           },
           "chargesAmount" : {
             "type" : "double"
+          },
+          "lcp" : {
+            "type" : "keyword"
           }
         }
       },

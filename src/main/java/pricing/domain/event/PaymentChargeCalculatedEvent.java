@@ -4,6 +4,7 @@ import events.IMessage;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import lcp.Lcp;
 import money.Currency;
 import money.Money;
 import org.joda.time.DateTime;
@@ -16,12 +17,14 @@ public class PaymentChargeCalculatedEvent extends Event implements IMessage {
   private UUID merchantId;
   private DateTime occurredAt;
   private Integer version = 1;
+  private Lcp lcp;
 
-  public PaymentChargeCalculatedEvent(UUID paymentId, Money charges, UUID merchantId) {
+  public PaymentChargeCalculatedEvent(UUID paymentId, Money charges, UUID merchantId, Lcp lcp) {
     this.paymentId = paymentId;
     this.merchantId = merchantId;
     this.charges = charges;
     this.occurredAt = DateTime.now();
+    this.lcp = lcp;
   }
 
   public UUID getPaymentId() {
@@ -36,6 +39,10 @@ public class PaymentChargeCalculatedEvent extends Event implements IMessage {
     return merchantId;
   }
 
+  public Lcp getLcp() {
+    return lcp;
+  }
+
   public static PaymentChargeCalculatedEvent fromMessage(IMessage message) {
     if (!message.getName().matches(PaymentChargeCalculatedEvent.NAME)) {
       throw new RuntimeException();
@@ -47,7 +54,8 @@ public class PaymentChargeCalculatedEvent extends Event implements IMessage {
             Integer.valueOf(payload.get("chargesAmount")),
             Currency.valueOf(payload.get("chargesCurrency"))
         ),
-        UUID.fromString(payload.get("merchantId"))
+        UUID.fromString(payload.get("merchantId")),
+        Lcp.valueOf(payload.get("lcp"))
     );
   }
 
@@ -57,6 +65,7 @@ public class PaymentChargeCalculatedEvent extends Event implements IMessage {
     payload.put("chargesAmount", this.charges.getAmount().toString());
     payload.put("chargesCurrency", this.charges.getCurrency().toString());
     payload.put("merchantId", this.merchantId.toString());
+    payload.put("lcp", this.getLcp().toString());
     return payload;
   }
 

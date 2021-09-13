@@ -22,7 +22,8 @@ public class PaymentClearedEventHandler implements IHandle {
         paymentClearedEvent.getValue(),
         paymentClearedEvent.getInterchangeCost(),
         paymentClearedEvent.getSchemeFee(),
-        paymentClearedEvent.getMerchantId()
+        paymentClearedEvent.getMerchantId(),
+        paymentClearedEvent.getLcp()
     ));
     publisher.flush();
   }

@@ -10,6 +10,8 @@ services:
     environment:
       POSTGRES_PASSWORD: ${PG_PRICING_PASS}
       POSTGRES_USER: ${PG_PRICING_USER}
+    volumes:
+      - ${PG_PRICING_HOME}:/var/lib/postgresql/data
 
 networks:
   default:
