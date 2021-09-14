@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - ${GRAFANA_PORT}:3000
+    environment:
+      GF_INSTALL_PLUGINS: "gapit-htmlgraphics-panel"
+    volumes:
+      - ${GRAFANA_HOME}/data:/var/lib/grafana
+
+networks:
+  default:
+    external:
+      name: poc-wp

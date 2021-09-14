@@ -67,9 +67,19 @@ postgres-stop: #stops postgres instances
 	@cd ${PWD}/docker/postgres-pricing; docker-compose down;
 	@cd ${PWD}
 
-start-services: kafka-start elk-start  postgres-start ## Starts all dockerized services
+grafana-start: ## Starts the grafana instance
+	@export PWD=`pwd`;
+	@cd ${PWD}/docker/grafana; docker-compose up -d;
+	@cd ${PWD}
 
-stop-services: postgres-stop elk-stop kafka-stop ## Stops all dockerized services
+grafana-stop: ## Stops the grafana instance
+	@export PWD=`pwd`;
+	@cd ${PWD}/docker/grafana; docker-compose down;
+	@cd ${PWD}
+
+start-services: kafka-start elk-start grafana-start postgres-start ## Starts all dockerized services
+
+stop-services: postgres-stop grafana-stop elk-stop kafka-stop ## Stops all dockerized services
 
 test: ## Runs the tests
 	mvn test

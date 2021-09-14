@@ -2,3 +2,5 @@
   path.config: /usr/share/logstash/pipeline/kafka_input.conf
 - pipeline.id: payment_priced
   path.config: /usr/share/logstash/pipeline/payment_priced.conf
+- pipeline.id: clearing_db
+  path.config: /usr/share/logstash/pipeline/clearing_db_input.conf

@@ -7,15 +7,15 @@ export KAFKA_EXTERNAL_PORT=29092
 export AFDROP_PORT=9000
 export KAFKA_CLEARING_INTERNAL_TOPIC_NAME=clearing-internal
 
-total=5
+total=10
 count=1
 
 echo "creating $total events"
-#lcp='UK_PO1100000001'
-#muid='861edc23-ae0e-4a1d-84c8-c6aa98fb284e'
+lcp='UK_PO1100000001'
+muid='861edc23-ae0e-4a1d-84c8-c6aa98fb284e'
 
-lcp='BV_PO1100000002'
-muid='27d2aadb-c444-4788-9195-5a42715a1d13'
+#lcp='BV_PO1100000002'
+#muid='27d2aadb-c444-4788-9195-5a42715a1d13'
 
 while [ $count -le $total ]
 do
