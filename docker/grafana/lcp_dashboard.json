@@ -1,0 +1,126 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 2,
+  "links": [],
+  "panels": [
+    {
+      "datasource": null,
+      "gridPos": {
+        "h": 17,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "SVGBaseFix": true,
+        "add100Percentage": false,
+        "centerAlignContent": false,
+        "codeData": "{\n  \"text\": \"Random text\"\n}",
+        "css": "* {\n  font-family: Open Sans;\n}\n\n.box {\n  border: solid #555 2px;\n  border-radius: 10px;\n  padding: 10px 20px;\n}\n",
+        "dynamicData": false,
+        "html": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<!-- Created with Inkscape (http://www.inkscape.org/) -->\n\n<svg\n   width=\"594mm\"\n   height=\"841mm\"\n   viewBox=\"0 0 594 841\"\n   version=\"1.1\"\n   id=\"svg49799\"\n   inkscape:version=\"1.1 (c4e8f9e, 2021-05-24)\"\n   sodipodi:docname=\"nap_lcp_grafana.svg\"\n   xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\"\n   xmlns:sodipodi=\"http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd\"\n   xmlns=\"http://www.w3.org/2000/svg\"\n   xmlns:svg=\"http://www.w3.org/2000/svg\">\n  <sodipodi:namedview\n     id=\"namedview49801\"\n     pagecolor=\"#ffffff\"\n     bordercolor=\"#666666\"\n     borderopacity=\"1.0\"\n     inkscape:pageshadow=\"2\"\n     inkscape:pageopacity=\"0.0\"\n     inkscape:pagecheckerboard=\"0\"\n     inkscape:document-units=\"mm\"\n     showgrid=\"false\"\n     inkscape:zoom=\"0.77771465\"\n     inkscape:cx=\"738.05991\"\n     inkscape:cy=\"576.68967\"\n     inkscape:window-width=\"1857\"\n     inkscape:window-height=\"1081\"\n     inkscape:window-x=\"0\"\n     inkscape:window-y=\"23\"\n     inkscape:window-maximized=\"0\"\n     inkscape:current-layer=\"layer1\" />\n  <defs\n     id=\"defs49796\" />\n  <g\n     inkscape:label=\"Layer 1\"\n     inkscape:groupmode=\"layer\"\n     id=\"layer1\">\n    <rect\n       style=\"fill:#00a67d;stroke:#000000;stroke-width:0.264583;paint-order:markers fill stroke\"\n       id=\"wpuk_lcp_container\"\n       width=\"112.94845\"\n       height=\"103.76289\"\n       x=\"36.402065\"\n       y=\"32.319607\"\n       onclick=\"loadurl('uk')\" />\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583\"\n       x=\"42.525776\"\n       y=\"45.436337\"\n       id=\"text53987\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan53985\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583\"\n         x=\"42.525776\"\n         y=\"45.436337\">Worldpay UK Ltd.</tspan></text>\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583\"\n       x=\"84.67363\"\n       y=\"79.571678\"\n       id=\"wpuk_count\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan52063\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583\"\n         x=\"84.67363\"\n         y=\"79.571678\">000</tspan></text>\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583\"\n       x=\"84.792595\"\n       y=\"110.93816\"\n       id=\"wpuk_value\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan52063-9\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583\"\n         x=\"84.792595\"\n         y=\"110.93816\">000</tspan></text>\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.29167px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583\"\n       x=\"76.206192\"\n       y=\"62.899548\"\n       id=\"text54928\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan54926\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.29167px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583\"\n         x=\"76.206192\"\n         y=\"62.899548\">transactions</tspan></text>\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.29167px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583\"\n       x=\"86.918701\"\n       y=\"92.733459\"\n       id=\"text54928-0\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan54926-7\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.29167px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583\"\n         x=\"86.918701\"\n         y=\"92.733459\">value</tspan></text>\n    <rect\n       style=\"fill:#00a67d;stroke:#000000;stroke-width:0.264583;paint-order:markers fill stroke\"\n       id=\"wpbv_lcp_container\"\n       width=\"112.94845\"\n       height=\"103.76289\"\n       x=\"171.12372\"\n       y=\"32.67865\"\n       onclick=\"loadurl('bv')\" />\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583\"\n       x=\"177.24742\"\n       y=\"45.79538\"\n       id=\"text53987-3\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan53985-9\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583\"\n         x=\"177.24742\"\n         y=\"45.79538\">Worldpay BV Ltd.</tspan></text>\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583\"\n       x=\"219.39528\"\n       y=\"79.930725\"\n       id=\"wpbv_count\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan52063-3\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583\"\n         x=\"219.39528\"\n         y=\"79.930725\">000</tspan></text>\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583\"\n       x=\"219.51425\"\n       y=\"111.29721\"\n       id=\"wpbv_value\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan52063-9-9\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583\"\n         x=\"219.51425\"\n         y=\"111.29721\">000</tspan></text>\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.29167px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583\"\n       x=\"210.92784\"\n       y=\"63.258591\"\n       id=\"text54928-1\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan54926-4\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.29167px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583\"\n         x=\"210.92784\"\n         y=\"63.258591\">transactions</tspan></text>\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.29167px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583\"\n       x=\"221.64035\"\n       y=\"93.092499\"\n       id=\"text54928-0-4\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan54926-7-5\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.29167px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583\"\n         x=\"221.64035\"\n         y=\"93.092499\">value</tspan></text>\n  </g>\n</svg>\n",
+        "onInit": "// Sets the text from customProperties\nconst htmlgraphicsText = htmlNode.getElementById('htmlgraphics-text');\n\nif (htmlgraphicsText) {\n  htmlgraphicsText.textContent = customProperties.text;\n\n  // Change the text color based on the theme\n  if (theme.isDark) {\n    htmlgraphicsText.style.color = 'green';\n  } else {\n    htmlgraphicsText.style.color = 'red';\n  }\n}\n\nloadurl = function(lcp) {\n  switch (lcp) {\n    case 'uk':\n      window.location.href = 'd/4GmyvLInz/nap-processing-overview?orgId=1&refresh=5s&var-lcp=UK_PO1100000001&var-merchant=All';\n      break;\n    case 'bv':\n      window.location.href = 'd/4GmyvLInz/nap-processing-overview?orgId=1&refresh=5s&var-lcp=BV_PO1100000002&var-merchant=All';\n      break;\n  }\n}\n",
+        "onRender": "const getMetricByName = (metricName, series, noDataValue = 'No data') => {\n    const filteredSeries = data.series.filter((series) => series.refId == metricName);\n    if (filteredSeries.length > 0) {\n        return filteredSeries[series].fields[1].values.buffer[1];\n    }\n    return noDataValue;\n};\n\nvar payment_count_uk = getMetricByName('payment_cleared_uk',0);\nvar payment_value_uk = getMetricByName('payment_cleared_uk',1);\n\nconst wpuk_count = htmlNode.getElementById('wpuk_count');\nconst wpuk_value = htmlNode.getElementById('wpuk_value');\nwpuk_count.textContent = payment_count_uk;\nwpuk_value.textContent = payment_value_uk.toLocaleString();\n\nvar payment_count_bv = getMetricByName('payment_cleared_bv',0);\nvar payment_value_bv = getMetricByName('payment_cleared_bv',1);\n\nconst wpbv_count = htmlNode.getElementById('wpbv_count');\nconst wpbv_value = htmlNode.getElementById('wpbv_value');\nwpbv_count.textContent = payment_count_bv;\nwpbv_value.textContent = payment_value_bv.toLocaleString();",
+        "overflow": "visible",
+        "panelupdateOnMount": true,
+        "renderOnMount": true
+      },
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "occurred_at",
+              "id": "2",
+              "settings": {
+                "interval": "1d"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            },
+            {
+              "field": "payload.value",
+              "id": "3",
+              "type": "sum"
+            }
+          ],
+          "query": "name : \"payment_cleared\" AND payload.lcp : UK_PO1100000001",
+          "refId": "payment_cleared_uk",
+          "timeField": "occurred_at"
+        },
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "occurred_at",
+              "id": "2",
+              "settings": {
+                "interval": "1d"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "hide": false,
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            },
+            {
+              "field": "payload.value",
+              "id": "3",
+              "type": "sum"
+            }
+          ],
+          "query": "name : \"payment_cleared\" AND payload.lcp : BV_PO1100000002",
+          "refId": "payment_cleared_bv",
+          "timeField": "occurred_at"
+        }
+      ],
+      "title": "Legal Counter Parties",
+      "type": "gapit-htmlgraphics-panel"
+    }
+  ],
+  "schemaVersion": 30,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now/d",
+    "to": "now/d"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "LCPs",
+  "uid": "aOOnZ_S7z",
+  "version": 18
+}

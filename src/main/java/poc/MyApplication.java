@@ -29,9 +29,15 @@ public class MyApplication {
 
       IPublish publisher = (IPublish) appContext.getBean("clearing.messagePublisher");
       try {
-        publisher.publish(
-            new ClearPaymentCommand(UUID.fromString(args[1]))
-        );
+        String[] uuids = args[1].split(",");
+        for (int i = 0; i < uuids.length; i++) {
+          if (uuids[i] != "") {
+            publisher.publish(
+                    new ClearPaymentCommand(UUID.fromString(uuids[i]))
+            );
+          }
+        }
+
       } catch (Exception e) {
         e.printStackTrace();
       }

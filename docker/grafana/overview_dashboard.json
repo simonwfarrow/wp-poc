@@ -1,0 +1,487 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 1,
+  "iteration": 1632306366208,
+  "links": [],
+  "panels": [
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 6,
+        "y": 0
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "valueSize": 50
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.1.3",
+      "targets": [
+        {
+          "alias": "{{field}}",
+          "bucketAggs": [
+            {
+              "field": "occurred_at",
+              "id": "2",
+              "settings": {
+                "interval": "1d"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "metrics": [
+            {
+              "field": "payload.value",
+              "hide": false,
+              "id": "1",
+              "settings": {},
+              "type": "sum"
+            },
+            {
+              "field": "payload.schemeFeeAmount",
+              "id": "3",
+              "type": "sum"
+            },
+            {
+              "field": "payload.interchangeCostAmount",
+              "id": "4",
+              "type": "sum"
+            }
+          ],
+          "query": "name : \"payment_cleared\" AND payload.lcp : $lcp AND payload.merchantId : $merchant",
+          "refId": "payment_cleared",
+          "timeField": "occurred_at"
+        },
+        {
+          "alias": "{{field}}",
+          "bucketAggs": [
+            {
+              "field": "occurred_at",
+              "id": "2",
+              "settings": {
+                "interval": "1d"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "hide": false,
+          "metrics": [
+            {
+              "field": "payload.chargesAmount",
+              "id": "1",
+              "type": "sum"
+            }
+          ],
+          "query": "name : \"payment_charge_calculated\" AND payload.lcp : $lcp AND payload.merchantId : $merchant",
+          "refId": "payment_priced",
+          "timeField": "occurred_at"
+        }
+      ],
+      "title": "Total Value",
+      "transformations": [
+        {
+          "id": "seriesToColumns",
+          "options": {
+            "byField": "Time"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "payload.chargesAmount": "Charges",
+              "payload.interchangeCostAmount": "Interchange Cost",
+              "payload.schemeFeeAmount": "Scheme Fee",
+              "payload.value": "Value"
+            }
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": "-- Mixed --",
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 8
+      },
+      "id": 2,
+      "options": {
+        "SVGBaseFix": true,
+        "add100Percentage": false,
+        "centerAlignContent": false,
+        "codeData": "{\n  \"text\": \"Random text\"\n}",
+        "css": "* {\n  font-family: Open Sans;\n}\n\n.box {\n  border: solid #555 2px;\n  border-radius: 10px;\n  padding: 10px 20px;\n}\n",
+        "dynamicData": false,
+        "html": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<!-- Created with Inkscape (http://www.inkscape.org/) -->\n\n<svg\n   width=\"594mm\"\n   height=\"841mm\"\n   viewBox=\"0 0 594 841\"\n   version=\"1.1\"\n   id=\"svg28048\"\n   inkscape:version=\"1.1 (c4e8f9e, 2021-05-24)\"\n   sodipodi:docname=\"nap_grafana_v2.svg\"\n   xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\"\n   xmlns:sodipodi=\"http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd\"\n   xmlns:xlink=\"http://www.w3.org/1999/xlink\"\n   xmlns=\"http://www.w3.org/2000/svg\"\n   xmlns:svg=\"http://www.w3.org/2000/svg\">\n  <sodipodi:namedview\n     id=\"namedview28050\"\n     pagecolor=\"#ffffff\"\n     bordercolor=\"#666666\"\n     borderopacity=\"1.0\"\n     inkscape:pageshadow=\"2\"\n     inkscape:pageopacity=\"0.0\"\n     inkscape:pagecheckerboard=\"0\"\n     inkscape:document-units=\"mm\"\n     showgrid=\"false\"\n     inkscape:zoom=\"0.58921512\"\n     inkscape:cx=\"616.0738\"\n     inkscape:cy=\"718.75277\"\n     inkscape:window-width=\"1720\"\n     inkscape:window-height=\"1255\"\n     inkscape:window-x=\"1505\"\n     inkscape:window-y=\"111\"\n     inkscape:window-maximized=\"0\"\n     inkscape:current-layer=\"layer1\" />\n  <defs\n     id=\"defs28045\">\n    <marker\n       style=\"overflow:visible;\"\n       id=\"marker47619\"\n       refX=\"0.0\"\n       refY=\"0.0\"\n       orient=\"auto\"\n       inkscape:stockid=\"Arrow1Mend\"\n       inkscape:isstock=\"true\">\n      <path\n         transform=\"scale(0.4) rotate(180) translate(10,0)\"\n         style=\"fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt;\"\n         d=\"M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z \"\n         id=\"path47617\" />\n    </marker>\n    <marker\n       style=\"overflow:visible;\"\n       id=\"marker47493\"\n       refX=\"0.0\"\n       refY=\"0.0\"\n       orient=\"auto\"\n       inkscape:stockid=\"Arrow1Mend\"\n       inkscape:isstock=\"true\">\n      <path\n         transform=\"scale(0.4) rotate(180) translate(10,0)\"\n         style=\"fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt;\"\n         d=\"M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z \"\n         id=\"path47491\" />\n    </marker>\n    <marker\n       style=\"overflow:visible;\"\n       id=\"Arrow1Mend\"\n       refX=\"0.0\"\n       refY=\"0.0\"\n       orient=\"auto\"\n       inkscape:stockid=\"Arrow1Mend\"\n       inkscape:isstock=\"true\">\n      <path\n         transform=\"scale(0.4) rotate(180) translate(10,0)\"\n         style=\"fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt;\"\n         d=\"M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z \"\n         id=\"path27678\" />\n    </marker>\n    <marker\n       style=\"overflow:visible;\"\n       id=\"Arrow2Lend\"\n       refX=\"0.0\"\n       refY=\"0.0\"\n       orient=\"auto\"\n       inkscape:stockid=\"Arrow2Lend\"\n       inkscape:isstock=\"true\">\n      <path\n         transform=\"scale(1.1) rotate(180) translate(1,0)\"\n         d=\"M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z \"\n         style=\"fill-rule:evenodd;fill:context-stroke;stroke-width:0.62500000;stroke-linejoin:round;\"\n         id=\"path27690\" />\n    </marker>\n    <linearGradient\n       inkscape:collect=\"always\"\n       id=\"linearGradient39497-0\">\n      <stop\n         style=\"stop-color:#00a67d;stop-opacity:1;\"\n         offset=\"0\"\n         id=\"stop39493\" />\n      <stop\n         style=\"stop-color:#00a67d;stop-opacity:0;\"\n         offset=\"1\"\n         id=\"stop39495\" />\n    </linearGradient>\n    <linearGradient\n       inkscape:collect=\"always\"\n       xlink:href=\"#linearGradient39497-0\"\n       id=\"linearGradient39499\"\n       x1=\"89.474228\"\n       y1=\"48.309277\"\n       x2=\"155.81442\"\n       y2=\"48.309277\"\n       gradientUnits=\"userSpaceOnUse\"\n       gradientTransform=\"translate(6.8041237,2.0412371)\" />\n    <linearGradient\n       inkscape:collect=\"always\"\n       xlink:href=\"#linearGradient39497-0\"\n       id=\"linearGradient44770\"\n       gradientUnits=\"userSpaceOnUse\"\n       gradientTransform=\"translate(156.32474,-13.608246)\"\n       x1=\"89.474228\"\n       y1=\"48.309277\"\n       x2=\"155.81442\"\n       y2=\"48.309277\" />\n    <linearGradient\n       inkscape:collect=\"always\"\n       xlink:href=\"#linearGradient39497-0\"\n       id=\"linearGradient44784\"\n       gradientUnits=\"userSpaceOnUse\"\n       gradientTransform=\"translate(157.00515,16.670104)\"\n       x1=\"89.474228\"\n       y1=\"48.309277\"\n       x2=\"155.81442\"\n       y2=\"48.309277\" />\n  </defs>\n  <g\n     inkscape:label=\"Layer 1\"\n     inkscape:groupmode=\"layer\"\n     id=\"layer1\">\n    <circle\n       style=\"fill:#b9dbe5;fill-opacity:1;stroke:#000000;stroke-width:0.431288;stroke-opacity:1;paint-order:markers fill stroke\"\n       id=\"psc_system\"\n       cx=\"47.118553\"\n       cy=\"51.201031\"\n       r=\"27.303246\" />\n    <circle\n       style=\"fill:#b9dbe5;fill-opacity:1;stroke:#000000;stroke-width:0.431288;stroke-opacity:1;paint-order:markers fill stroke\"\n       id=\"pricing_system\"\n       cx=\"207.86598\"\n       cy=\"50.010311\"\n       r=\"27.303246\" />\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583\"\n       x=\"22.393173\"\n       y=\"51.847439\"\n       id=\"text29251\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan29249\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583\"\n         x=\"22.393173\"\n         y=\"51.847439\">Clearing</tspan></text>\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583\"\n       x=\"185.96802\"\n       y=\"52.677662\"\n       id=\"text29251-3\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan29249-7\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583\"\n         x=\"185.96802\"\n         y=\"52.677662\">Pricing</tspan></text>\n    <path\n       style=\"fill:none;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\"\n       d=\"m 15.309279,68.683849 v 0 c 0,0 27.216495,45.247421 60.216495,0\"\n       id=\"path32337\"\n       sodipodi:nodetypes=\"ccc\" />\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583\"\n       id=\"psc_count\"\n       y=\"72.804123\"\n       x=\"37.271435\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan34053\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583\"\n         x=\"37.271435\"\n         y=\"72.804123\">000</tspan></text>\n    <rect\n       style=\"mix-blend-mode:normal;fill:url(#linearGradient39499);fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-opacity:1;paint-order:markers fill stroke\"\n       id=\"payment_cleared_topic\"\n       width=\"66.340202\"\n       height=\"11.56701\"\n       x=\"96.278351\"\n       y=\"44.567009\" />\n    <rect\n       style=\"mix-blend-mode:normal;fill:url(#linearGradient44770);fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-opacity:1;paint-order:markers fill stroke\"\n       id=\"payment_priced_topic\"\n       width=\"66.340202\"\n       height=\"11.56701\"\n       x=\"245.79897\"\n       y=\"28.917526\" />\n    <rect\n       style=\"mix-blend-mode:normal;fill:url(#linearGradient44784);fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-opacity:1;paint-order:markers fill stroke\"\n       id=\"pricing_failed_topic\"\n       width=\"66.340202\"\n       height=\"11.56701\"\n       x=\"246.47939\"\n       y=\"59.195877\" />\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583\"\n       x=\"100.36084\"\n       y=\"41.505154\"\n       id=\"payment_cleared_topic_text\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan40448\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583\"\n         x=\"100.36084\"\n         y=\"41.505154\">payment_cleared</tspan></text>\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583\"\n       x=\"250.73428\"\n       y=\"25.230543\"\n       id=\"payment_priced_topic_text\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan40448-2\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583\"\n         x=\"250.73428\"\n         y=\"25.230543\">payment_priced</tspan></text>\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583\"\n       x=\"251.07448\"\n       y=\"55.951927\"\n       id=\"pricing_failed_topic_text\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan40448-2-7\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583\"\n         x=\"251.07448\"\n         y=\"55.951927\">pricing_failed</tspan></text>\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:'Courier New';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583;-inkscape-font-specification:'Courier New, Normal';font-stretch:normal;font-variant:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal\"\n       x=\"118.39176\"\n       y=\"53.752575\"\n       id=\"payment_cleared_count\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan42906\"\n         style=\"stroke-width:0.264583;-inkscape-font-specification:'Courier New, Normal';font-family:'Courier New';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:10.58330002px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal\"\n         x=\"118.39176\"\n         y=\"53.752575\">000</tspan></text>\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583\"\n       x=\"267.40649\"\n       y=\"37.943714\"\n       id=\"payment_priced_count\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan42906-8\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583\"\n         x=\"267.40649\"\n         y=\"37.943714\">000</tspan></text>\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583\"\n       x=\"267.7467\"\n       y=\"68.222069\"\n       id=\"pricing_failed_count\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan42906-7\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;font-family:'Courier New';-inkscape-font-specification:'Courier New, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583\"\n         x=\"267.7467\"\n         y=\"68.222069\">000</tspan></text>\n    <path\n       style=\"fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend);fill-opacity:1;stroke-miterlimit:4;stroke-dasharray:none\"\n       d=\"M 74.420068,50.91899 96.278351,50.693181\"\n       id=\"psc_output_path\"\n       inkscape:connector-type=\"polyline\"\n       inkscape:connector-curvature=\"0\"\n       inkscape:connection-start=\"#path28155\"\n       inkscape:connection-end=\"#rect38553\" />\n    <path\n       style=\"fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend);stroke-miterlimit:4;stroke-dasharray:none\"\n       d=\"m 162.61855,50.20661 17.94491,-0.07785\"\n       id=\"pricing_input_path\"\n       inkscape:connector-type=\"polyline\"\n       inkscape:connector-curvature=\"0\"\n       inkscape:connection-start=\"#rect38553\"\n       inkscape:connection-end=\"#path28155-5\" />\n    <path\n       style=\"fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)\"\n       d=\"M 234.55714,44.263411 252.1079,40.484536\"\n       id=\"pricing_priced_output_path\"\n       inkscape:connector-type=\"polyline\"\n       inkscape:connector-curvature=\"0\"\n       inkscape:connection-start=\"#path28155-5\"\n       inkscape:connection-end=\"#rect38553-4\" />\n    <path\n       style=\"fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)\"\n       d=\"m 234.5939,55.583904 17.32105,3.611973\"\n       id=\"pricing_failed_output_path\"\n       inkscape:connector-type=\"polyline\"\n       inkscape:connector-curvature=\"0\"\n       inkscape:connection-start=\"#path28155-5\"\n       inkscape:connection-end=\"#rect38553-8\" />\n  </g>\n</svg>\n",
+        "onInit": "// Sets the text from customProperties\nconst psc_output_path = htmlNode.getElementById('psc_output_path');\nconst psc_system = htmlNode.getElementById('psc_system');\nconst payment_cleared_topic = htmlNode.getElementById('payment_cleared_topic');\nconst payment_cleared_topic_text = htmlNode.getElementById('payment_cleared_topic_text');\nconst pricing_system = htmlNode.getElementById('pricing_system');\nconst payment_priced_topic = htmlNode.getElementById('payment_priced_topic');\nconst payment_priced_topic_text = htmlNode.getElementById('payment_priced_topic_text');\nconst pricing_failed_topic = htmlNode.getElementById('pricing_failed_topic');\nconst pricing_failed_topic_text = htmlNode.getElementById('pricing_failed_topic_text');\nconst pricing_input_path = htmlNode.getElementById('pricing_input_path');\nconst pricing_priced_output_path = htmlNode.getElementById('pricing_priced_output_path');\nconst pricing_failed_output_path = htmlNode.getElementById('pricing_failed_output_path');\nconst output_arrow = htmlNode.getElementById('Arrow2Lend');\n\nif (psc_output_path) {\n  // Change the text color based on the theme\n \n  if (theme.isDark) {\n    psc_system.style.stroke = 'white';\n    psc_output_path.style.stroke = 'white';\n    payment_cleared_topic_text.style.fill = 'white';\n    payment_cleared_topic.style.stroke = 'white';\n    pricing_system.style.stroke = 'white';\n    payment_priced_topic.style.stroke = 'white';\n    pricing_failed_topic.style.stroke = 'white';\n    payment_priced_topic_text.style.fill = 'white';\n    pricing_failed_topic_text.style.fill = 'white';\n    pricing_input_path.style.stroke = 'white';\n    pricing_priced_output_path.style.stroke = 'white';\n    pricing_failed_output_path.style.stroke = 'white';\n    output_arrow.style.stroke = 'white';\n    output_arrow.style.fill = 'white';\n\n  } \n}\n",
+        "onRender": "const psc_count = htmlNode.getElementById('psc_count');\nconst payment_cleared_count = htmlNode.getElementById('payment_cleared_count');\nconst payment_cleared_topic = htmlNode.getElementById('payment_cleared_topic');\nconst payment_priced_topic = htmlNode.getElementById('payment_priced_topic');\nconst payment_priced_count = htmlNode.getElementById('payment_priced_count');\nconst pricing_failed_count = htmlNode.getElementById('pricing_failed_count');\nconst pricing_failed_topic = htmlNode.getElementById('pricing_failed_topic');\n\nconst getMetricByName = (metricName, noDataValue = 'No data') => {\n    const filteredSeries = data.series.filter((series) => series.refId == metricName);\n    if (filteredSeries.length > 0) {\n        return filteredSeries[0].fields[1].values.buffer[1];\n    }\n    return noDataValue;\n};\n\nvar psc_total = getMetricByName('psc_count');\nvar payment_cleared_total  = getMetricByName('payment_cleared');\nvar priced_total  = getMetricByName('payment_priced');\nvar pricing_failed_total  = getMetricByName('payment_pricing_failed');\nvar pricing_total = priced_total + pricing_failed_total;\n\nif (payment_cleared_total!=psc_total) {\n    payment_cleared_topic.style.fill = \"#f79740\";\n} else {\n    payment_cleared_topic.style.fill = \"#72d372\";\n}\n\nif (pricing_total!=payment_cleared_total) {\n    payment_priced_topic.style.fill = \"#f79740\";\n    pricing_failed_topic.style.fill = \"#f79740\";\n    \n} else {\n    payment_priced_topic.style.fill = \"#72d372\";\n    pricing_failed_topic.style.fill = \"#72d372\";\n}\n\npsc_count.textContent = psc_total;\npayment_cleared_count.textContent = payment_cleared_total;\npayment_priced_count.textContent = priced_total;\npricing_failed_count.textContent = pricing_failed_total;",
+        "overflow": "visible",
+        "panelupdateOnMount": true,
+        "renderOnMount": true
+      },
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "paid_at",
+              "id": "2",
+              "settings": {
+                "interval": "1d"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": "Elasticsearch-Clearing",
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "lcp : $lcp",
+          "refId": "psc_count",
+          "timeField": "paid_at"
+        },
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "occurred_at",
+              "id": "2",
+              "settings": {
+                "interval": "1d"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": "Elasticsearch",
+          "hide": false,
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "name : \"payment_cleared\" AND payload.lcp : $lcp AND payload.merchantId: $merchant",
+          "refId": "payment_cleared",
+          "timeField": "occurred_at"
+        },
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "occurred_at",
+              "id": "2",
+              "settings": {
+                "interval": "1d"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": "Elasticsearch",
+          "hide": false,
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "name : \"payment_charge_calculated\" AND payload.lcp : $lcp AND payload.merchantId: $merchant",
+          "refId": "payment_priced",
+          "timeField": "occurred_at"
+        },
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "field": "occurred_at",
+              "id": "2",
+              "settings": {
+                "interval": "1d"
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "datasource": "Elasticsearch",
+          "hide": false,
+          "metrics": [
+            {
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "name : \"payment_charge_calculation_failed\" AND payload.merchantId: $merchant",
+          "refId": "payment_pricing_failed",
+          "timeField": "occurred_at"
+        }
+      ],
+      "title": "Flow",
+      "transparent": true,
+      "type": "gapit-htmlgraphics-panel"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 18
+      },
+      "id": 6,
+      "options": {
+        "showHeader": true
+      },
+      "pluginVersion": "8.1.3",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [],
+          "metrics": [
+            {
+              "id": "1",
+              "settings": {
+                "size": "500"
+              },
+              "type": "raw_data"
+            }
+          ],
+          "query": "category : event AND payload.lcp : $lcp AND payload.merchantId : $merchant",
+          "refId": "A",
+          "timeField": "occurred_at"
+        }
+      ],
+      "title": "Events",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "@timestamp": true,
+              "@version": true,
+              "_id": true,
+              "_index": true,
+              "_type": true,
+              "aged": true,
+              "category": true,
+              "highlight": true,
+              "sort": true,
+              "tags": true
+            },
+            "indexByName": {
+              "@timestamp": 17,
+              "@version": 18,
+              "_id": 19,
+              "_index": 20,
+              "_type": 21,
+              "aged": 22,
+              "category": 2,
+              "highlight": 23,
+              "id": 0,
+              "kafka.consumer_group": 32,
+              "kafka.headers.headerVersion": 24,
+              "kafka.headers.messageId": 25,
+              "kafka.headers.nameSerde": 26,
+              "kafka.key": 27,
+              "kafka.offset": 28,
+              "kafka.partition": 29,
+              "kafka.timestamp": 30,
+              "kafka.topic": 31,
+              "name": 1,
+              "occurred_at": 3,
+              "payload.chargesAmount": 11,
+              "payload.chargesCurrency": 12,
+              "payload.currency": 8,
+              "payload.id": 7,
+              "payload.interchangeCostAmount": 13,
+              "payload.interchangeCostCurrency": 14,
+              "payload.lcp": 5,
+              "payload.merchantId": 6,
+              "payload.scheme": 10,
+              "payload.schemeFeeAmount": 15,
+              "payload.schemeFeeCurrency": 16,
+              "payload.value": 9,
+              "sort": 33,
+              "status": 4,
+              "tags": 34,
+              "type": 35,
+              "version": 36
+            },
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 30,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": "*",
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": null,
+        "definition": "{\"find\": \"terms\", \"field\": \"payload.lcp\", \"size\": 2}",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": true,
+        "label": null,
+        "multi": false,
+        "name": "lcp",
+        "options": [],
+        "query": "{\"find\": \"terms\", \"field\": \"payload.lcp\", \"size\": 2}",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "allValue": "*",
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": true,
+        "label": null,
+        "multi": false,
+        "name": "merchant",
+        "options": [
+          {
+            "selected": true,
+            "text": "All",
+            "value": "$__all"
+          },
+          {
+            "selected": false,
+            "text": "Google",
+            "value": "27d2aadb-c444-4788-9195-5a42715a1d13"
+          },
+          {
+            "selected": false,
+            "text": "Tesco",
+            "value": "861edc23-ae0e-4a1d-84c8-c6aa98fb284e"
+          }
+        ],
+        "query": "Google : 27d2aadb-c444-4788-9195-5a42715a1d13, Tesco : 861edc23-ae0e-4a1d-84c8-c6aa98fb284e",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now/d",
+    "to": "now/d"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "NAP Processing Overview",
+  "uid": "4GmyvLInz",
+  "version": 41
+}
