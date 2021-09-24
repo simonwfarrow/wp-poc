@@ -22,7 +22,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1632306366208,
+  "iteration": 1632317080614,
   "links": [],
   "panels": [
     {
@@ -49,9 +49,9 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 6,
+        "h": 4,
+        "w": 24,
+        "x": 0,
         "y": 0
       },
       "id": 4,
@@ -150,7 +150,7 @@
             "renameByName": {
               "payload.chargesAmount": "Charges",
               "payload.interchangeCostAmount": "Interchange Cost",
-              "payload.schemeFeeAmount": "Scheme Fee",
+              "payload.schemeFeeAmount": "Scheme Fees",
               "payload.value": "Value"
             }
           }
@@ -165,7 +165,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 8
+        "y": 4
       },
       "id": 2,
       "options": {
@@ -312,10 +312,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
+        "h": 15,
         "w": 24,
         "x": 0,
-        "y": 18
+        "y": 14
       },
       "id": 6,
       "options": {
@@ -396,14 +396,27 @@
               "type": 35,
               "version": 36
             },
-            "renameByName": {}
+            "renameByName": {
+              "payload.chargesAmount": "Charges",
+              "payload.chargesCurrency": "Charge Currency",
+              "payload.currency": "Currency",
+              "payload.id": "Payload Id",
+              "payload.interchangeCostAmount": "Interchange Cost Amount",
+              "payload.interchangeCostCurrency": "Interchange Cost Currency",
+              "payload.lcp": "LCP",
+              "payload.merchantId": "Party Id",
+              "payload.scheme": "Scheme",
+              "payload.schemeFeeAmount": "Scheme Fees Amount",
+              "payload.schemeFeeCurrency": "Scheme Fee Currency",
+              "payload.value": "Value"
+            }
           }
         }
       ],
       "type": "table"
     }
   ],
-  "refresh": "30s",
+  "refresh": "5s",
   "schemaVersion": 30,
   "style": "dark",
   "tags": [],
@@ -412,9 +425,9 @@
       {
         "allValue": "*",
         "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
+          "selected": true,
+          "text": "UK_PO1100000001",
+          "value": "UK_PO1100000001"
         },
         "datasource": null,
         "definition": "{\"find\": \"terms\", \"field\": \"payload.lcp\", \"size\": 2}",
@@ -437,12 +450,8 @@
         "allValue": "*",
         "current": {
           "selected": true,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
+          "text": "All",
+          "value": "$__all"
         },
         "description": null,
         "error": null,
@@ -483,5 +492,5 @@
   "timezone": "",
   "title": "NAP Processing Overview",
   "uid": "4GmyvLInz",
-  "version": 41
+  "version": 47
 }
