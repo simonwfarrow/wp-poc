@@ -1,6 +1,5 @@
 ---
 replicas: 1
-
 # Allows you to add any config files in /usr/share/logstash/config/
 # such as logstash.yml and log4j2.properties
 #
@@ -12,6 +11,14 @@ logstashConfig:
 #      nestedkey: value
 #  log4j2.properties: |
 #    key = value
+# this is a bit of a hack to override the pipeline config file as chart does not have an option for multi pipeline
+# the pipeline config below does not create separate  pipelines, all are merged
+# as per https://githubmemory.com/repo/elastic/helm-charts/issues/1282
+  pipelines.yml: |
+    - pipeline.id: kafka-input
+      path.config: "/usr/share/logstash/pipeline/logstash.conf"
+    - pipeline.id: payment-priced
+      path.config: "/usr/share/logstash/pipeline/payment-priced.conf"
   find_payment_charge_calculated.json: |
     {
       "size" : 1,
@@ -54,38 +61,31 @@ logstashPipeline:
           topics => ["clearing-internal", "clearing-payment","pricing-internal","pricing-payment"]
           type => business_events
           codec => json
-          group_id => logging
-          decorate_events => true
+          group_id => ossrecon
         }
     }
     filter {
       mutate {
         add_field => {
-          "kafka_raw" => "%{[@metadata][kafka]}"
           "status" => "new"
         }
-      }
-      json {
-        source => "kafka_raw"
-        target => "kafka"
-      }
-      mutate {
-        remove_field => ["kafka_raw"]
       }
     }
     output {
         elasticsearch {
-            hosts => "https://vpc-wp-poc-os-jhxkazbluwurhtmkktgglq5mwq.eu-west-2.es.amazonaws.com:443"
-            index => "businessevents-%{+YYYY.MM.DD}"
+            hosts => "https://vpc-wp-poc-oss-qy4bqr5vdh5ctfwqxr5cuwqwly.eu-west-2.es.amazonaws.com:443"
+            index => "businessevents-%{+YYYY.MM.dd}"
             manage_template => false
             user => "${ELASTIC_USERNAME}"
             password => "${ELASTIC_PASSWORD}"
+            ilm_enabled => false
+            ssl => true
         }
     }
   payment-priced.conf: |
     input {
       elasticsearch {
-        hosts => "https://vpc-wp-poc-os-jhxkazbluwurhtmkktgglq5mwq.eu-west-2.es.amazonaws.com:443"
+        hosts => "https://vpc-wp-poc-oss-qy4bqr5vdh5ctfwqxr5cuwqwly.eu-west-2.es.amazonaws.com:443"
         index => "businessevents*"
         schedule => "*/5 * * * * *"
         docinfo => true
@@ -96,7 +96,7 @@ logstashPipeline:
     }
     filter {
       elasticsearch {
-        hosts => "https://vpc-wp-poc-os-jhxkazbluwurhtmkktgglq5mwq.eu-west-2.es.amazonaws.com:443"
+        hosts => "https://vpc-wp-poc-oss-qy4bqr5vdh5ctfwqxr5cuwqwly.eu-west-2.es.amazonaws.com:443"
         index => "businessevents*"
         query_template => "/usr/share/logstash/config/find_payment_charge_calculated.json"
         add_tag => ["matched"]
@@ -125,13 +125,15 @@ logstashPipeline:
     output {
       if [status] == "priced" or [aged] {
         elasticsearch {
-          hosts => "https://vpc-wp-poc-os-jhxkazbluwurhtmkktgglq5mwq.eu-west-2.es.amazonaws.com:443"
+          hosts => "https://vpc-wp-poc-oss-qy4bqr5vdh5ctfwqxr5cuwqwly.eu-west-2.es.amazonaws.com:443"
           index => "%{[@metadata][_index]}"
           action => "update"
           document_id => "%{[@metadata][_id]}"
           manage_template => false
           user => "${ELASTIC_USERNAME}"
           password => "${ELASTIC_PASSWORD}"
+          ilm_enabled => false
+          ssl => true
         }
       }
     }

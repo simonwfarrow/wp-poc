@@ -1,0 +1,1 @@
+ssh -i wp_key -D 1337 -q -C -N ec2-user@3.8.139.77
