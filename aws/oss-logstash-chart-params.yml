@@ -5,7 +5,7 @@ replicas: 1
 #
 # Note that when overriding logstash.yml, `http.host: 0.0.0.0` should always be included
 # to make default probes work.
-logstashConfig: 
+logstashConfig:
 #  logstash.yml: |
 #    key:
 #      nestedkey: value
@@ -17,6 +17,8 @@ logstashConfig:
   pipelines.yml: |
     - pipeline.id: kafka-input
       path.config: "/usr/share/logstash/pipeline/logstash.conf"
+      pipeline.workers: 7
+      pipeline.batch.size: 1000
     - pipeline.id: payment-priced
       path.config: "/usr/share/logstash/pipeline/payment-priced.conf"
   find_payment_charge_calculated.json: |
@@ -45,7 +47,7 @@ logstashConfig:
     }}
 # Allows you to add any pipeline files in /usr/share/logstash/pipeline/
 ### ***warn*** there is a hardcoded logstash.conf in the image, override it first
-logstashPipeline: 
+logstashPipeline:
 #  logstash.conf: |
 #    input {
 #      exec {
@@ -58,7 +60,7 @@ logstashPipeline:
     input {
       kafka {
           bootstrap_servers => [ "b-1.wp-poc.qm5zi5.c2.kafka.eu-west-2.amazonaws.com:9092" ]
-          topics => ["clearing-internal", "clearing-payment","pricing-internal","pricing-payment"]
+          topics => ["clearing-payment-t"]
           type => business_events
           codec => json
           group_id => ossrecon
@@ -142,7 +144,7 @@ logstashPipeline:
 # Extra environment variables to append to this nodeGroup
 # This will be appended to the current 'env:' key. You can use any of the kubernetes env
 # syntax here
-extraEnvs: 
+extraEnvs:
 #  - name: MY_ENVIRONMENT_VAR
 #    value: the_value_goes_here
  - name: ELASTIC_PASSWORD
@@ -354,7 +356,9 @@ readinessProbe:
 ##
 schedulerName: ""
 
-nodeSelector: {}
+nodeSelector:
+  power: "true"
+
 tolerations: []
 
 nameOverride: ""

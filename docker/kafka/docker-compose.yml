@@ -4,6 +4,7 @@ services:
     image: wurstmeister/zookeeper
     ports:
       - "2181:2181"
+    container_name: zookeeper
   kafka:
     image: wurstmeister/kafka
     container_name: kafka
@@ -23,6 +24,8 @@ services:
       KAFKA_RESTART_ATTEMPTS: "10"
       KAFKA_RESTART_DELAY: "5"
       ZOOKEEPER_AUTOPURGE_PURGE_INTERVAL: "0"
+    depends_on:
+      - "zookeeper"
 
   ui:
     image: provectuslabs/kafka-ui:latest
