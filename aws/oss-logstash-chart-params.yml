@@ -77,6 +77,7 @@ logstashPipeline:
         elasticsearch {
             hosts => "https://vpc-wp-poc-oss-qy4bqr5vdh5ctfwqxr5cuwqwly.eu-west-2.es.amazonaws.com:443"
             index => "businessevents-%{+YYYY.MM.dd}"
+            document_id => "%{[id]}"
             manage_template => false
             user => "${ELASTIC_USERNAME}"
             password => "${ELASTIC_PASSWORD}"
